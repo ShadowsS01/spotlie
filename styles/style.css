@@ -254,6 +254,35 @@ body {
   font-size: 0.75rem;
 }
 
+.slide-right {
+  animation: slide-right 0.3s linear;
+}
+
+.slide-left {
+  animation: slide-left 0.3s linear;
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-1rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-left {
+  0% {
+    transform: translateX(1rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);

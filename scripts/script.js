@@ -23,6 +23,7 @@ const $musicDuration = document.getElementById("music-duration");
 const $musicLoading = document.getElementById("music-loading");
 const $player = document.getElementById("player");
 const $backgroundCover = document.getElementById("background-cover");
+const $musicInfo = document.querySelector(".music-info");
 
 const $playlist = document.getElementById("playlist");
 
@@ -114,6 +115,8 @@ function playOrPauseMusic() {
 }
 
 function skipMusic() {
+  $musicCover.classList.add("slide-left");
+  $musicInfo.classList.add("slide-left");
   if (currentMusic.index != sortedPlaylist.length - 1) {
     const index = currentMusic.index + 1;
     currentMusic = { index, id: sortedPlaylist[index].id };
@@ -122,9 +125,15 @@ function skipMusic() {
   }
   initializeMusic();
   playOrPauseMusic();
+  setTimeout(() => {
+    $musicCover.classList.remove("slide-left");
+    $musicInfo.classList.remove("slide-left");
+  }, 500);
 }
 
 function backMusic() {
+  $musicCover.classList.add("slide-right");
+  $musicInfo.classList.add("slide-right");
   if (currentMusic.index != 0) {
     const index = currentMusic.index - 1;
     currentMusic = { index, id: sortedPlaylist[index].id };
@@ -134,6 +143,10 @@ function backMusic() {
   }
   initializeMusic();
   playOrPauseMusic();
+  setTimeout(() => {
+    $musicCover.classList.remove("slide-right");
+    $musicInfo.classList.remove("slide-right");
+  }, 500);
 }
 
 function repeatMusicToggle() {
