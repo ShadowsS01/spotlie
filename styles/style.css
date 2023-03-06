@@ -254,29 +254,21 @@ body {
   font-size: 0.75rem;
 }
 
+.slide-right,
+.slide-left {
+  opacity: 0;
+  animation: slide 0.5s forwards;
+}
+
 .slide-right {
-  animation: slide-right 0.3s linear;
+  transform: translateX(-1rem);
 }
 
 .slide-left {
-  animation: slide-left 0.3s linear;
+  transform: translateX(1rem);
 }
 
-@keyframes slide-right {
-  0% {
-    transform: translateX(-1rem);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-left {
-  0% {
-    transform: translateX(1rem);
-    opacity: 0;
-  }
+@keyframes slide {
   100% {
     transform: translateX(0);
     opacity: 1;
